@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TO-DO APP</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="maincontainer">
+      <div class="topcontainer">
+        <h2 class="appname">TO-DO APP</h2>
+        <header>
+          <h2 class="heading">MY TASKS</h2>
+          <button type="button" class="add">
+            <img
+            id="formBtn"
+              src="add-circle-outline.svg"
+              alt="add button"
+              height="50px"
+              width="50px"
+              onclick="showForm()" 
+            />
+          </button>
+          <form id="formElement" style="display: none">
+            <div class="titleArea">
+              <p class="title">Title:</p>
+              <input type="text" id="taskTitle" />
+            </div>
+            <div class="descriptionArea">
+              <p class="description">Description:</p>
+              <input type="text" id="taskDescription" />
+            </div>
+            <div class="dateArea">
+              <p class="date">Due date:</p>
+              <input type="date" name="" id="date" />
+            </div>
+
+            <button type="submit" id="addBtn">ADD TASK</button>
+            <button type="button" id="updateBtn" >UPDATE TASK</button>
+          </form>
+        </header>
+       
+      </div>
+      <div class="bottomcontainer">
+        <!-- <div class="filter">
+            <ul class="filterlist">
+              <li>ALL</li>
+              <li>COMPLETE</li>
+              <li>INCOMPLETE</li>
+            </ul>
+          </div> -->
+        <div class="filter">
+          <div id="all">ALL</div>
+          <div id="complete">COMPLETED</div>
+
+        </div>
+        <div id="tasks"> 
+          
+          <div id="task" class="task"></div>
+          <div class="task">
+            <!-- <div class="title">School</div>
+            <div class="description">Complete the assignment</div>
+            <div class="dueDate"></div>
+            <div class="actions">
+                <button id="editBtn">EDIT</button>
+                <button id="deleteBtn">DELETE</button>
+            </div> -->
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

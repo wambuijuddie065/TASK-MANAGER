@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #A8D7F5;
+}
+.maincontainer{
+    display: flex;
+    flex-direction: column;
+    /* border: solid 2px red; */
+    width: 800px;
+    height: 100%;
+    margin: 50px auto;
+    /* padding: 20px; */
+    background-color: #0400AD;
+    border-radius: 20px;
+    color: white;
+   
+
+}
+.appname{
+    text-align: center;
+}
+header{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+
+}
+.add{
+    
+    border: none;
+    background-color: #0400AD;
+    
+}
+#addBtn{
+    cursor: pointer;
+    /* margin-left: 30px; */
+    margin-top: 10px;
+    
+}
+.topcontainer{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    /* border: solid 2px greenyellow; */
+    /* background-color: aqua; */
+    height: 200px;
+    margin: 20px;
+    
+      
+}
+.bottomcontainer{
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    height: 500px; 
+    background-color:#FFFFFF;
+    padding: 20px;
+    color: black;
+
+}
+/* .filterlist {
+    display: flex;
+    justify-content: space-around;
+    
+}
+.filterlist li {
+    list-style-type: none;
+} */
+
+.filter{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+.task{
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between; 
+    padding-top: 10px; 
+}
+
+.actions {
+    display: flex;
+    gap: 20px;
+}
+.actions #editBtn{
+    background-color: green;
+}
+.actions #deleteBtn{
+    background-color: red;
+}
+.actions #deleteBtn, #editBtn{
+    height: 30px;
+    width: 90px;
+    border: solid 1px white;
+    border-radius: 5px;
+}
