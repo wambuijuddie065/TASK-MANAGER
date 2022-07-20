@@ -20,7 +20,8 @@
               alt="add button"
               height="50px"
               width="50px"
-              onclick="showForm()" 
+              onclick="showForm()"
+               
             />
           </button>
           <form id="formElement" style="display: none">
@@ -51,9 +52,22 @@
               <li>INCOMPLETE</li>
             </ul>
           </div> -->
+          
         <div class="filter">
-          <div id="all">ALL</div>
-          <div id="complete">COMPLETED</div>
+          <div class="inc">
+            <h2>INCOMPLETE<span></span></h2>
+            <div id="incomplete">
+  
+            </div>
+          </div>
+          <div class="comp">
+            <h2>COMPLETE <span></span></h2>
+          <div id="complete">
+
+          </div>
+          </div>
+         
+          
 
         </div>
         <div id="tasks"> 
@@ -76,3 +90,4 @@
     <script src="main.js"></script>
   </body>
 </html>
+
