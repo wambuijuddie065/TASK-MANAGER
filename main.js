@@ -5,6 +5,10 @@ const date = document.getElementById("date");
 const addBtn = document.getElementById("addBtn");
 const updateBtn = document.getElementById("updateBtn");
 
+
+const uncompleted_task= document.getElementById('uncompleted-task')
+const completed_task= document.getElementById('completed-task')
+
 const incompleteTasks = document.querySelector("#incomplete");
 const completedTasks = document.querySelector("#complete");
 
@@ -19,13 +23,21 @@ function showForm() {
 	}
 	
 }
-incompletearr = [];
+let incompletearr = [];
+
+// incompletearr.push({
+// 	title:'swedfrgth',
+// 	description:"jjhvcvbnm",
+// 	date:new Date(),
+// 	completed:false
+// })
+
+let completedarr=[]
+
+listTodos()
+countTasks()
 window.addEventListener("load", () => {
-	// const resetForm = () => {
-	//   title.value = ""
-	//   description.value = ""
-	//     date.value = ""
-	// }
+	
 
 	form.addEventListener("submit", (e) => {
 		e.preventDefault();
@@ -33,23 +45,23 @@ window.addEventListener("load", () => {
 		if (!input) {
 			alert("Please fill in all the fields");
 		} else {
-			// id = Math.ceil(Math.random() * 1000000);
+			
 			incompletearr.push({
-				// id: id,
+				
 				title: title.value,
 				description: description.value,
 				date: date.value,
 				completed: false,
 			});
 
-			// resetForm();
+			
 			form.reset();
 			listTodos(incompletearr);
 		}
 	});
 });
 
-const paintHtmlToDom = (data,id)=>{
+function paintHtmlToDom (data,id){
 	const html=data.map((item, index) => {
 		let htmlcode = `
 		    <div class="mytask">
@@ -72,6 +84,7 @@ const paintHtmlToDom = (data,id)=>{
 		pDiv.innerHTML=html;
 		
 	}
+	countTasks();
 	
 
 	
@@ -80,18 +93,20 @@ const paintHtmlToDom = (data,id)=>{
 
 
 
-let listTodos = () => {
-	const completedTasks=incompletearr.filter((todo)=>todo.completed);
-	const uncompletedTasks=incompletearr.filter((todo)=>!todo.completed);
+function listTodos() {
 	
-paintHtmlToDom(uncompletedTasks,"incomplete");
-paintHtmlToDom(completedTasks,"complete");
+	
+paintHtmlToDom(incompletearr,"incomplete");
+paintHtmlToDom(completedarr,"complete");
+console.log('dfg'+completedarr);
 
 };
 function completeTask(target,id){
 	const item = getTaskById(id);
 	item.completed=target.checked;
-	incompletearr.splice(id,1,item)
+	
+	completedarr.push(item)
+	incompletearr.splice(id,1)
 
 	listTodos();
 	
@@ -100,9 +115,10 @@ function completeTask(target,id){
 }
 
 function deleteTask(id) {
-	const item = getTaskById(id);
-	incompletearr.splice(item, 1);
-	// console.log(incompletearr);
+	
+	incompletearr.splice(id, 1);
+	
+
 	listTodos();
 
 }
@@ -129,7 +145,7 @@ function updateTask(id, newItem) {
 	console.log(id, newItem);
 	incompletearr.splice(id, 1, newItem);
 	listTodos();
-	// resetForm();
+	
 	form.reset();
 	updateBtn.style.display = "none";
 	addBtn.style.display = "block";
@@ -139,11 +155,22 @@ function updateTask(id, newItem) {
 
 
  
-// function countTasks() {
-//   incompleteTasks.textContent = incompletearr.length;
-//   const completedTasksArray = incompletearr.filter((task) => task.isCompleted === true);
-//   completedTasks.textContent = completedTasksArray.length;
-// }
+function countTasks() {
+
+  if(incompletearr.length===0){
+	uncompleted_task.textContent='No Uncompleted task available'
+  }else{
+	uncompleted_task.textContent = incompletearr.length;
+  }
+
+  if(completedarr.length===0){
+	completed_task.textContent='No completed Tasks Available'
+  }
+  else{
+	completed_task.textContent = completedarr.length;
+  }
+
+}
 
 function getTaskById(id) {
 	return incompletearr.find((element, index) => index === id);
